@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login/Login'
 import Home from '@/components/Home/Home'
 import Product from '@/components/Product/Product'
+import Admin from '@/components/Login/Admin'
+import OperateSheet from '@/components/Operate/OperateSheet'
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -19,6 +20,11 @@ export default new Router({
       component: Login
     },
     {
+      path: '/admin',
+      name: 'Admin',
+      component: Admin
+    },
+    {
       path: '/product',
       name: 'Product',
       component: Product
@@ -27,6 +33,11 @@ export default new Router({
       path: '/home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/operate-sheet',
+      name: 'OperateSheet',
+      component: OperateSheet
     }
   ]
 })

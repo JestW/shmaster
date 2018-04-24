@@ -1,5 +1,5 @@
-import store from '@/store'
-import AjaxPlugin from '../axiosPlugin/Axiosplugin'
+import store from '../store'
+import ajax from '../service/ajax'
 
 export const Auth = {
   isLogIn () {
@@ -8,8 +8,8 @@ export const Auth = {
   async login ({userName, password}) {
     let res
     try {
-      res = await AjaxPlugin.$http
-        .post('Login', {
+      // debugger
+      res = await ajax.post('Login', {
           userName: userName,
           pwd: password
         })
@@ -49,8 +49,7 @@ export const Auth = {
     if (!authorizedModuleIds.length) {
       let res
       try {
-        res = await AjaxPlugin.$http
-          .post('GetUserModuleAuthority')
+        res = await ajax.post('GetUserModuleAuthority')
       } catch (e) {
         throw Object({message: '网络错误'})
       }

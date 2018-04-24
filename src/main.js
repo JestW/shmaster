@@ -3,11 +3,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import App from './App'
+import Icon from 'vue-awesome/components/Icon'
 import store from './store'
 import router from './router'
-import AjaxPlugin from './axiosPlugin/Axiosplugin'
+import './app.css'
+import AjaxPlugin from './service/index'
 
 Vue.use(Vuex)
+Vue.component('icon', Icon)
 Vue.config.productionTip = false
 
 const FastClick = require('fastclick')

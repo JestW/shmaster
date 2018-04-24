@@ -39,8 +39,9 @@ ajax.interceptors.response.use(function (config) {
 })
 
 const proxy = {
-  async get (serviceName, ...rest) {
+  async get(serviceName, ...rest) {
     try {
+
       const serviceUrl = await Service.getServiceUrlByName(serviceName)
       return await ajax.get(serviceUrl, ...rest)
     } catch (e) {
@@ -54,6 +55,7 @@ const proxy = {
    * @returns {*}
    */
   async post (serviceName, ...rest) {
+    // debugger
     const serviceUrl = await Service.getServiceUrlByName(serviceName)
 
     async function doPost (count = 0) {
@@ -72,7 +74,7 @@ const proxy = {
   }
 }
 
-export default proxy
+
 
 /**
  * 序列化请求参数
@@ -117,3 +119,5 @@ function upperToLowerCamelCase (response) {
   }
   return res
 }
+
+export default proxy

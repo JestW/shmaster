@@ -4,10 +4,9 @@ import * as getters from './getters'
 import * as actions from './actions'
 import * as mutations from './mutations'
 import work from './modules/work'
-import storage from '@/storage'
+import storage from '../storage'
 const debug = process.env.NODE_ENV !== 'production'
 Vue.use(Vuex)
-
 const state = {
   planOrder: {}, // 生产单号
   orientation: 'portrait', // 'landscape' : 'portrait',
@@ -42,7 +41,6 @@ const store = new Vuex.Store({
   state,
   strict: debug
 })
-
 export default store
 
 

@@ -13,18 +13,17 @@
           class="sh_input_group"
         >
           <x-input
-            title=""
+            title="公司码"
             labelWidth="100px"
             type="text"
             :max=11
             name="corpCode"
             v-model="corpCode"
+            @on-blur="onBlur"
             placeholder="请输入公司码"
             keyboard="number"
             class="sh_input_cell"
-          >
-            <i slot="label" class="iconfont icon-user" style="margin-right: 10px; font-size: 20px;"></i>
-          </x-input>
+          ></x-input>
           <x-input
             title="手机号码"
             labelWidth="100px"
@@ -32,6 +31,7 @@
             v-model="mobilePhone"
             name="mobile"
             :max=11
+            @on-focus="onFocus"
             placeholder="请输入手机"
             keyboard="number"
             class="sh_input_cell"
@@ -44,6 +44,7 @@
             type="password"
             v-model="password"
             name="mobile"
+            @on-focus="onFocus"
             placeholder="请输入密码"
             @on-enter="doLogin"
             class="sh_input_cell"
@@ -82,13 +83,12 @@
         password: '',
         isShowLoginLoading: false,
         corpCode: this.$store.state.corpCode,
-        serviceAvailable: false,
+        // serviceAvailable: false,
         showLogin: true
       }
     },
     methods: {
-     /* async onBlur(){
-        // console.log(1);
+      async onBlur(){
         if (!this.corpCode) {
           this.$vux.toast.show({
             type: 'text',
@@ -98,33 +98,33 @@
           })
           return
         }
-        try{
+        try {
           this.$store.commit('UPDATE_CORP_CODE', this.corpCode)
           await Service.getService()
-          this.serviceAvailable = true
-        }catch (error) {
-          this.serviceAvailable = false
+          // this.serviceAvailable = true
+        } catch (error) {
+          // this.serviceAvailable = false
           this.$vux.toast.show({
             type: 'text',
-            text: '网络错误',
             width: 'auto',
             position: 'middle',
+            text: error.message
           })
         }
-      },*/
+      },
+
       async doLogin () {
         const _this = this
         let message
-        if (!this.corpCode){
+        if(!this.corpCode){
           message = '请输入公司码'
-        }else if (this.mobilePhone.length === 0) {
+        }else if(this.mobilePhone.length === 0) {
           message = '请输入手机号'
         } else if (!/^1[34578]\d{9}$/.test(this.mobilePhone)) {
           message = '请输入正确的手机号'
         } else if (this.password.length === 0) {
           message = '请输入密码'
         }
-
         if (message) {
           this.$vux.toast.show({
             type: 'text',
@@ -134,19 +134,6 @@
           })
           return
         }
-        try{
-          this.$store.commit('UPDATE_CORP_CODE', this.corpCode)
-          await Service.getService()
-          this.serviceAvailable = true
-        }catch (error) {
-          this.serviceAvailable = false
-          this.$vux.toast.show({
-            type: 'text',
-            text: '网络错误',
-            width: 'auto',
-            position: 'middle',
-          })
-        }
         this.isShowLoginLoading = true
         let ret
         try {
@@ -154,7 +141,7 @@
             userName: this.mobilePhone,
             password: this.password
           });
-        } catch (e) {
+        } catch (error) {
           this.$vux.toast.show({
             type: 'text',
             text: '网络错误',
@@ -181,7 +168,6 @@
         }
       },
       async preCheck () {
-        // this.$http.post
         let corpCode = this.$store.state.corpCode
         let corpId = this.$store.state.corpId
         let authToken = this.$store.state.authToken
@@ -194,7 +180,7 @@
               this.$store.commit('UPDATE_LOADING', true)
               await Service.getService()
               this.$store.commit('UPDATE_LOADING', false)
-              this.serviceAvailable = true
+              // this.serviceAvailable = true
               this.showLogin = true
             } catch (e) {
               this.$store.commit('UPDATE_LOADING', false)

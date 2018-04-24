@@ -1,0 +1,212 @@
+@import "./assets/fonts/iconfont.css";
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb
+{
+  width: 0;
+  height: 0;
+}
+/*头部下面的标签导航*/
+.nav {
+  position: relative;
+}
+.nav-item {
+  padding: 15px;
+}
+.nav-item {
+  border-bottom: 1px solid #d9d9d9;
+}
+
+/*组件布局*/
+.component {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.component-content {
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sh_header {
+  background: url("./assets/images/header-bg.jpg") center center;
+  background-size: cover;
+}
+.sb_header1{
+  background: url("./assets/images/header1_02.jpg") center center;
+  background-size: cover;
+}
+.sb_header2{
+  background: url("./assets/images/header2_02.jpg") center center;
+  background-size: cover;
+}
+.dp-header .dp-item.dp-right {
+  color: #01C9ED!important;
+}
+
+/*回退按钮修改，扩大点击区域*/
+.vux-header .vux-header-left {
+  top: 0!important;
+  left: 0!important;
+  padding-left: 18px;
+}
+.vux-header .vux-header-left .left-arrow {
+  top: 50%!important;
+  left: 13px!important;
+  transform: translateY(-50%);
+}
+.vux-header .vux-header-left .vux-header-back {
+  top: 0;
+  bottom: 0;
+  line-height: 44px;
+}
+.empicon{
+  display: inline-block;
+  vertical-align: middle;
+  width:34px;
+  height:26px;
+  background: url("./assets/images/empicon.png") no-repeat 0 0;
+  background-size: contain;
+}
+.icon_repair{
+  display: inline-block;
+  width:20px;
+  height:30px;
+  background: url("./assets/images/icon_repair.svg") no-repeat 0 0;
+  background-size: contain;
+}
+.icon_r{
+  display: inline-block;
+  width:16px;
+  height:20px;
+  vertical-align: middle;
+  background: url("./assets/images/icon_repairS.svg") no-repeat 0 0;
+  background-size: contain;
+  margin-left: 5px;
+}
+.waitOrder ul li,
+.ReceiveOrder ul li{
+  display: flex;
+  padding:10px 10px;
+  border-bottom: 1px solid #ccc;
+}
+.CloseOrder ul li{
+  padding:0 10px;
+  border-bottom: 1px solid #ccc;
+}
+.CloseOrder ul li .cont_top{
+  width: 100%;
+  display: flex;
+}
+.waitOrder ul li .left,
+.ReceiveOrder ul li .left,
+.CloseOrder ul li .left{
+  width:15%;
+  padding:10px 10px 0;
+  text-align: center;
+}
+.waitOrder ul li .left i.l_b,
+.ReceiveOrder ul li .left i.l_b,
+.CloseOrder ul li .left i.l_b{
+  width: 100%;
+  height:40px;
+}
+.waitOrder ul li .right,
+.ReceiveOrder ul li .right,
+.CloseOrder ul li .right{
+  width:80%;
+  position: relative;
+}
+.CloseOrder ul li .right > span{
+  font-size: 14px;
+  color: #ccc;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.waitOrder ul li .right h4,
+.ReceiveOrder ul li .right h4,
+.CloseOrder ul li .right h4{
+  width:100%;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.waitOrder ul li .right .title,
+.ReceiveOrder ul li .right .title,
+.CloseOrder ul li .right .title
+{
+  display: inline-block;
+  width:100%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.waitOrder ul li .right h4 span.time,
+.ReceiveOrder ul li .right h4 span.time,
+.CloseOrder ul li .right h4 span.time{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  color: #5c5c5c;
+}
+.waitOrder ul li .right p,
+.ReceiveOrder ul li .right p,
+.CloseOrder ul li .right p{
+  font-size: 13px;
+  margin-top: 5px;
+}
+.waitOrder ul li .right .btns,
+.ReceiveOrder ul li .right .btns,
+.CloseOrder ul li .right .btns{
+  text-align: right;
+}
+.waitOrder .btns,
+.ReceiveOrder .btns,
+.CloseOrder .btns{
+  margin-top: 5px;
+}
+.waitOrder .btns span,
+.CloseOrder .btns span{
+  margin-left: 10px;
+}
+.icon_jd, .icon_xq, .icon_comment{
+  display: inline-block;
+  vertical-align: middle;
+  width:20px;
+  height:24px;
+  background: url("./assets/images/icon_jd.svg") no-repeat 0 0;
+  background-size: contain;
+}
+.icon_xq{
+  background: url("./assets/images/icon_xq.svg") no-repeat 0 0;
+  background-size: contain;
+}
+.icon_comment{
+  background: url("./assets/images/icon_commemt.svg") no-repeat 0 0;
+  background-size: contain;
+  vertical-align: text-top;
+}
+@media only screen and (min-width: 768px) {
+  html,body{
+    font-size: 20px;
+  }
+  .weui-tabbar__label{
+    font-size: 20px !important;
+  }
+}
+

@@ -1,7 +1,7 @@
 /**
  * 工作流程相关
  */
-import ajax from '@/service/axios'
+import ajax from '@/service/ajax'
 import storage from '@/storage'
 
 const work = {

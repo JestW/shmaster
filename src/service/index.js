@@ -1,4 +1,4 @@
-import ajax from '../service/axios'
+import ajax from './ajax'
 
 export default {
   install (Vue) {
